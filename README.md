@@ -23,13 +23,10 @@ bottle.py 與 ngrok 已經附在專案之中，如果有需要可以使用以下
 首先會在'user' 的state上，只要輸入隨意訊息都會到'manual'
 接著就只要按照每個state 傳送給你的訊息，照著指示回覆訊息就可以完成小遊戲。
 
-Features/: 可以傳送圖片、原創的短篇故事劇情。
+Features and bonus: 可以傳送圖片、原創的短篇故事劇情。
 
 possible accepted input table (Note: all in lowercase)
-|manual  |almost all states|in game |
-|:------:|:---------------:|:------:|
-|help    |back             |a       |
-|about   |                 |b       |
-|credits |                 |ab      |
-|play    |                 |ba      |
-|show fsm|                 |(combination of abc...)|
+
+- manual: `help`, `about`, `credits`, `show fsm`, `play`
+- in almost all states: `back` (will return to manual)
+- in game: `a`, `b`, `ab`, `ba...` (something like this, just string of combinations of a, b, c......)
