@@ -17,7 +17,14 @@ def send_text_message(id, text):
         print("Unable to send message: " + response.text)
     return response
 
-
+def send_img_message(id,text):
+    url = "{0}/me/messages?access_token={1}".format(GRAPH_URL, ACCESS_TOKEN)
+    payload = {
+        "recipient": {"id": id},
+        "message": {"attachment": {"type": "image", "payload": {"url": text}}}
+    }
+    response = requests.post(url, json=payload)
+    
 """
 def send_image_url(id, img_url):
     pass

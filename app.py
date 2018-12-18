@@ -7,29 +7,66 @@ VERIFY_TOKEN = "1"
 machine = TocMachine(
     states=[
         'user',
-        'state1',
-        'state2'
+        'manual',
+        'showFSM',
+            'help',
+            'credits',
+            'about',
+            'playgame'
     ],
     transitions=[
+        #initailize, enter manual state when user type something
+        {
+            'trigger': 'wakeup',
+            'source': 'user',
+            'dest': 'manual'
+        },
+        #manual advance
         {
             'trigger': 'advance',
-            'source': 'user',
-            'dest': 'state1',
-            'conditions': 'is_going_to_state1'
+            'source': 'manual',
+            'dest': 'help',
+            'conditions': 'is_going_to_help'
         },
         {
             'trigger': 'advance',
-            'source': 'user',
-            'dest': 'state2',
-            'conditions': 'is_going_to_state2'
+            'source': 'manual',
+            'dest': 'credits',
+            'conditions': 'is_going_to_credits'
+        },
+        
+        #show FSM for each state
+        {
+            'trigger': 'advance',
+            'source': 'manual',
+            'dest': 'showFSM',
+            'conditions': 'is_going_to_showFSM'
         },
         {
-            'trigger': 'go_back',
+            'trigger': 'advance',
+            'source': 'manual',
+            'dest': 'about',
+            'conditions': 'is_going_to_about'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'manual',
+            'dest': 'playgame',
+            'conditions': 'is_going_to_playgame'
+        },
+        
+        #go back to manual
+        {
+            'trigger': 'advance',
             'source': [
-                'state1',
-                'state2'
+                'user',
+                    'help',
+                    'credits',
+                    'showFSM',
+                    'about',
             ],
-            'dest': 'user'
+            'dest': 'manual',
+            'conditions': 'return_to_manual'
         }
     ],
     initial='user',
@@ -61,7 +98,10 @@ def webhook_handler():
 
     if body['object'] == "page":
         event = body['entry'][0]['messaging'][0]
-        machine.advance(event)
+        if machine.state == 'user':
+            machine.wakeup(event)
+        else:
+            machine.advance(event)
         return 'OK'
 
 
