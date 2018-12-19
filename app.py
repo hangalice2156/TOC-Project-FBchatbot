@@ -202,10 +202,11 @@ def webhook_handler():
 
     if body['object'] == "page":
         event = body['entry'][0]['messaging'][0]
-        if machine.state == 'user':
-            machine.wakeup(event)
-        else:
-            machine.advance(event)
+        if event.get("message") and event['message'].get("text"):
+            if machine.state == 'user':
+                machine.wakeup(event)
+            else:
+                machine.advance(event)
         return 'OK'
 
 
