@@ -26,7 +26,7 @@ bottle.py 與 ngrok 已經附在專案之中，如果有需要可以使用以下
 首先會在'user' 的state上，只要輸入隨意訊息都會到'manual'
 接著就只要按照每個state 傳送給你的訊息，照著指示回覆訊息就可以完成小遊戲。
 
-Features and bonus: 可以傳送圖片、原創的短篇故事劇情。
+Features and bonus: 可以傳送圖片、原創的短篇故事劇情。deploy on Heroku
 
 possible accepted input table (Note: all in lowercase)
 
