@@ -245,7 +245,7 @@ class TocMachine(GraphMachine):
     
     def on_enter_encounterCC(self, event):
         sender_id = event['sender']['id']
-        send_img_message(sender_id, "http://evenews24.com/wp-content/uploads/2013/05/dead_owned_wreck.jpg")
+        send_img_message(sender_id, "https://1dfq7235s7hdjun832pbscof-wpengine.netdna-ssl.com/wp-content/uploads/2018/10/project-nova-750x445.jpg")
         response = send_text_message(sender_id, "You tried to surrender to keep your fleet alive, but they did not accpet your surrender. your fleet is destoryed")
         response = send_text_message(sender_id, "Type: back\nto return to manual")
         self.advance(event)
@@ -262,6 +262,7 @@ class TocMachine(GraphMachine):
     
     def on_enter_encounterBAA(self, event):
         sender_id = event['sender']['id']
+        send_img_message(sender_id, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Eve_Online_-_Empyrean_Age_screenshot.jpg/800px-Eve_Online_-_Empyrean_Age_screenshot.jpg")
         response = send_text_message(sender_id, "Your fleet keeps fireing at burners. Though we lost some ships but victory claimed!")
         response = send_text_message(sender_id, "Type: back\nto return to manual")
         self.advance(event)
@@ -278,6 +279,7 @@ class TocMachine(GraphMachine):
     
     def on_enter_encounterBAB(self, event):
         sender_id = event['sender']['id']
+        send_img_message(sender_id, "http://www.guinnessworldrecords.com/Images/eve-online-1_tcm25-522237.jpg")
         response = send_text_message(sender_id, "You choose to retreat as you think you cannot hold more damege. Thankfully the burners is dameged so that thay cannot stop you from wrapping.\nYour fleet returned safely.")
         response = send_text_message(sender_id, "Type: back\nto return to manual")
         self.advance(event)
@@ -294,6 +296,7 @@ class TocMachine(GraphMachine):
     
     def on_enter_encounterBBA(self, event):
         sender_id = event['sender']['id']
+        send_img_message(sender_id, "http://www.guinnessworldrecords.com/Images/eve-online-1_tcm25-522237.jpg")
         response = send_text_message(sender_id, "You choose to fight back as you cannot escape. After a fierce battle, only few ships returned safely. The burners are eliminated.")
         response = send_text_message(sender_id, "Type: back\nto return to manual")
         self.advance(event)
