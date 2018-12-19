@@ -15,6 +15,9 @@ bottle.py 與 ngrok 已經附在專案之中，如果有需要可以使用以下
 執行`ngrok http <port>`，同時執行`python3 app.py` 就可以開始透過ngrok 運行bot，app.py 的port 要和ngrok 開的一樣。
 要注意存取權杖與驗證權杖需要和自己管理的FB相符。
 
+## FSM
+![FSM](https://github.com/hangalice2156/TOC-Project-FBchatbot/blob/master/fsm.png?raw=true)
+
 ## 描述
 嘗試用FBchatbot 做了一個簡單的小遊戲。
 
