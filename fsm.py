@@ -27,9 +27,27 @@ class TocMachine(GraphMachine):
         send_img_message(sender_id, "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3952729/e33979288a09394314f7a24d8f63e6a9c3d6ebc7.jpg")
         response = send_text_message(sender_id, "Welcom to EVE online mini game o7")
         response = send_text_message(sender_id, "Note: this is unofficial fan page\nCreated for school project with python")
-        response = send_text_message(sender_id, "Type one of the following message to continue:\n- help\n- credits\n- show fsm\n- about\n- play")
+        response = send_text_message(sender_id, "Type one of the following message to continue:\n- demo\n- help\n- credits\n- show fsm\n- about\n- play")
         self.advance(event)
         
+    ##demo
+    def is_going_to_demo(self, event):
+        if event.get("message"):
+            text = event['message']['text']
+            return text.lower() == 'demo'
+        return False
+
+    def on_enter_help(self, event):
+        print("deemo")
+
+        sender_id = event['sender']['id']
+        response = send_text_message(sender_id, "This is an additional state for deemo, hope its going fine")
+        response = send_text_message(sender_id, "type: back\nto return to manual")
+        self.advance(event)
+        
+    def on_exit_help(self, event):
+        print('Deemo!')
+
     ##help
     def is_going_to_help(self, event):
         if event.get("message"):
