@@ -37,7 +37,7 @@ class TocMachine(GraphMachine):
             return text.lower() == 'demo'
         return False
 
-    def on_enter_help(self, event):
+    def on_enter_demo(self, event):
         print("deemo")
 
         sender_id = event['sender']['id']
@@ -45,7 +45,7 @@ class TocMachine(GraphMachine):
         response = send_text_message(sender_id, "type: back\nto return to manual")
         self.advance(event)
         
-    def on_exit_help(self, event):
+    def on_exit_demo(self, event):
         print('Deemo!')
 
     ##help
