@@ -9,6 +9,7 @@ machine = TocMachine(
     states=[
         'user',
         'manual',
+            'demo',
             'showFSM',
             'help',
             'credits',
@@ -35,6 +36,12 @@ machine = TocMachine(
             'dest': 'manual'
         },
         #manual advance
+        {
+            'trigger': 'advance',
+            'source': 'manual',
+            'dest': 'demo',
+            'conditions': 'is_going_to_demo'
+        },
         {
             'trigger': 'advance',
             'source': 'manual',
@@ -156,6 +163,7 @@ machine = TocMachine(
             'trigger': 'advance',
             'source': [
                 'user',
+                    'demo',
                     'help',
                     'credits',
                     'showFSM',
